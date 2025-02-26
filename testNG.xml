@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="API tests">
+    <listeners>
+    </listeners>
+
+    <test name="API requests ">
+        <classes>
+            <class name="deleteuserrequest.DeleteUserRequestRunner"/>
+            <class name="createuserrequest.CreateUserRequestRunner"/>
+            <class name="listusersrequest.ListUsersRequestRunner"/>
+            <class name="updateuserrequest.UpdateUserRunner"/>
+        </classes>
+    </test>
+</suite>
