@@ -32,24 +32,24 @@ public class CommonSteps {
         RestAssured.baseURI=BaseUrl.props.getProperty("Url.Base");
     }
 
-    @Then("validate on response status code \"([^\"]*)\"$")
+    @Then("validate response status code \"([^\"]*)\"$")
     public void validateOnResponseStatusCode(int statusCode) {
         response.then()
                 .assertThat()
                 .statusCode(statusCode);
     }
 
-    @Then("validate on response data")
+    @Then("validate response data")
     public void validateOnResponseData(){
         response.then()
                 .assertThat().
-                 body("name", equalTo(name))
-                .body("job", equalTo(job));
+                 body(cellData1, equalTo(name))
+                .body(cellData2, equalTo(job));
 
     }
 
 
-    @When("read data from csv file and send them to the request {string} {string} {string}")
+    @When("read data from CSV and send {string}{string}{string}")
     public void readDataFromCsvFileAndSendThemToTheRequest(String row , String column1 , String column2) {
         excelReadFile = new ExcelReadFile("input.xlsx");
         cellData1=excelReadFile.getCellData("GenerateData",Integer.parseInt(row),Integer.parseInt(column1));
@@ -60,7 +60,7 @@ public class CommonSteps {
         request.put(cellData2,job);
     }
 
-    @And("logging response time")
+    @And("log response time")
     public void loggingResponseTime(){
         responseTime=endTime-startTime;
         Logs.info("Response Time: " + responseTime + " ms");

@@ -2,9 +2,9 @@ Feature: Delete created user to reqresIn
 
   Scenario Outline: Delete created user and verify the response
     Given the base URL is set
-    When user send a Post request to  "<EndPoint>"
+    When send a POST request to "<EndPoint>"
     And user send a Delete request to  "<EndPoint>""<UserId>"
-    Then validate on response status code "<StatusCode>"
+    Then validate response status code "<StatusCode>"
     And validate on response
 
     Examples:
