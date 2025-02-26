@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class ListUsersRequestSteps {
 
-    @When("user send a GET request to : {string}")
+    @When("user send a GET request to  {string}")
     public void userSendAGetRequest(String endpoint) {
         CommonSteps.request.put("page",2);
         CommonSteps.response = given()

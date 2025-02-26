@@ -32,7 +32,7 @@ public class CommonSteps {
         RestAssured.baseURI=BaseUrl.props.getProperty("Url.Base");
     }
 
-    @Then("validate on response status code: \"([^\"]*)\"$")
+    @Then("validate on response status code \"([^\"]*)\"$")
     public void validateOnResponseStatusCode(int statusCode) {
         response.then()
                 .assertThat()
@@ -49,7 +49,7 @@ public class CommonSteps {
     }
 
 
-    @When("read data from csv file and send them to the request: {string} {string} {string}")
+    @When("read data from csv file and send them to the request {string} {string} {string}")
     public void readDataFromCsvFileAndSendThemToTheRequest(String row , String column1 , String column2) {
         excelReadFile = new ExcelReadFile("input.xlsx");
         cellData1=excelReadFile.getCellData("GenerateData",Integer.parseInt(row),Integer.parseInt(column1));
