@@ -5,6 +5,8 @@ Feature: Retrieve users from reqresIn
     When user send a GET request to  "<EndPoint>"
     Then validate response status code "<StatusCode>"
     And validate on response
+    And log response time
+
 
     Examples:
       | EndPoint |  | StatusCode |

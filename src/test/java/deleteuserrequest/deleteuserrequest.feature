@@ -6,6 +6,8 @@ Feature: Delete created user to reqresIn
     And user send a Delete request to  "<EndPoint>""<UserId>"
     Then validate response status code "<StatusCode>"
     And validate on response
+    And log response time
+
 
     Examples:
       | EndPoint   |UserId | StatusCode|

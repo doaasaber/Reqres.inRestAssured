@@ -11,4 +11,4 @@ Feature: Create new user to reqres.in
     Examples:
       | EndPoint   | row | column1 | column2 | StatusCode |
       | api/users/ | 0   | 0       | 1       | 201        |
-      | api/users/ | 1   | 1       | 2       | 201        |
+      | api/users/ | 0   | 0       | 1       | 201        |

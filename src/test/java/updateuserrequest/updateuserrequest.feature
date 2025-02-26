@@ -6,6 +6,8 @@ Feature: Update user in reqresIn
     And user send a Update request to  "<EndPoint>""<UserID>"
     Then validate response status code "<StatusCode>"
     And validate response data
+    And log response time
+
 
     Examples:
       | EndPoint  |row |column1|column2| UserID| StatusCode |
