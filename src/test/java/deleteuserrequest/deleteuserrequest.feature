@@ -1,4 +1,4 @@
-Feature: Delete created user to reqres.in
+Feature: Delete created user to reqresIn
 
   Scenario Outline: Delete created user and verify the response
     Given the base URL is set

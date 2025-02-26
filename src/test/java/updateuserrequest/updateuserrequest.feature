@@ -1,4 +1,4 @@
-Feature: Update user in reqres.in
+Feature: Update user in reqresIn
 
   Scenario Outline: Update user and verify the response
     Given the base URL is set

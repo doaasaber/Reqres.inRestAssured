@@ -1,4 +1,4 @@
-Feature: Create new user to reqres.in
+Feature: Create new user to reqresIn
 
   Scenario Outline: Create new user and verify the response
     Given the base URL is set
@@ -12,6 +12,7 @@ Feature: Create new user to reqres.in
       | EndPoint  |row |column1| column2  | StatusCode |
       | api/users/|0   | 0     |   1      | 201        |
       | api/users/|0   | 0     |   1      | 201        |
+
 
 
 

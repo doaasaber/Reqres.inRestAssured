@@ -1,4 +1,4 @@
-Feature: Retrieve users from reqres.in
+Feature: Retrieve users from reqresIn
 
   Scenario Outline: Retrieve all posts and verify the response
     Given the base URL is set
