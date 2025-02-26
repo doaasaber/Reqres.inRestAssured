@@ -1,0 +1,14 @@
+# Default ignored files
+#/.idea/workspace.xml
+target/
+ReqresInAPI.iml
+
+**.DS_Store
+.idea
+output/
+target
+reports/**
+
+**.html
+**.log
+**.7z
