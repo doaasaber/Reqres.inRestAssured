@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set Up JDK 17
         uses: actions/setup-java@v3
@@ -28,22 +28,27 @@ jobs:
           restore-keys: |
             maven-
 
-      - name: Install Allure (Without PPA)
+      - name: Install Allure
         run: |
-          curl -o allure-2.27.0.tgz -L https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
-          tar -zxvf allure-2.27.0.tgz
-          sudo mv allure-2.27.0 /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
-          allure --version  # Verify installation
-
-      - name: Run API Tests
+          sudo apt update
+          sudo apt install -y allure
+      
+      - name: Run API Tests and Generate Allure Results
         run: mvn clean test
-
+        
       - name: Generate Allure Report
         run: mvn allure:report
 
-      - name: Upload Allure Report as Artifact
+      - name: Upload Allure Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: target/allure-results
+          retention-days: 5
+
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: target/site/allure-maven-plugin/
+          retention-days: 5
