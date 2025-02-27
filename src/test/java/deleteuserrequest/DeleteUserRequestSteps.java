@@ -4,7 +4,7 @@ import io.cucumber.java.en.When;
 
 import static io.restassured.RestAssured.given;
 public class DeleteUserRequestSteps {
-    @When("the user sends a DELETE request to {string} {string}")
+    @When("the user sends a DELETE request to {string}/{string}")
     public void userSendADeleteRequest(String endpoint,String userId) {
 
         CommonSteps.response = given().header("Content-Type", "application/json")

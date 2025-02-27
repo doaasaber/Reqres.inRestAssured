@@ -31,14 +31,14 @@ public class CommonSteps {
         RestAssured.baseURI=BaseUrl.props.getProperty("Url.Base");
     }
 
-    @Then("validate response status code \"([^\"]*)\"$")
+    @Then("the response status code should be \"([^\"]*)\"$")
     public void validateOnResponseStatusCode(int statusCode) {
         response.then()
                 .assertThat()
                 .statusCode(statusCode);
     }
 
-    @Then("validate response data")
+    @Then("the response data should be valid")
     public void validateOnResponseData(){
         response.then()
                 .assertThat().
@@ -59,7 +59,7 @@ public class CommonSteps {
         request.put(cellData2,job);
     }
 
-    @And("log response time")
+    @And("log the response time")
     public void loggingResponseTime(){
         responseTime=endTime-startTime;
         Logs.info("Response Time: " + responseTime + " ms");
