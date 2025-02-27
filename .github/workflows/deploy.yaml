@@ -1,4 +1,4 @@
-name: Super-Linter
+name: API Tests with Allure Reports
 
 on:
   push:
@@ -32,23 +32,20 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y allure
-      
-      - name: Run API Tests and Generate Allure Results
-        run: mvn clean test
-        
-      - name: Generate Allure Report
-        run: mvn allure:report
 
-      - name: Upload Allure Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: target/allure-results
-          retention-days: 5
+      - name: Run API Tests and Generate Allure Results
+        run: mvn clean test -Dallure.results.directory=/home/runner/work/Reqres.inRestAssured/Reqres.inRestAssured/allure-results
+
+      - name: Ensure Allure Results Exist
+        run: ls -la /home/runner/work/Reqres.inRestAssured/Reqres.inRestAssured/allure-results || echo "No Allure results found!"
+
+      - name: Generate Allure Report
+        if: success()
+        run: mvn allure:report -Dallure.results.directory=/home/runner/work/Reqres.inRestAssured/Reqres.inRestAssured/allure-results -Dallure.report.directory=/home/runner/work/Reqres.inRestAssured/Reqres.inRestAssured/allure-report
 
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: target/site/allure-maven-plugin/
+          path: /home/runner/work/Reqres.inRestAssured/Reqres.inRestAssured/allure-report/
           retention-days: 5
