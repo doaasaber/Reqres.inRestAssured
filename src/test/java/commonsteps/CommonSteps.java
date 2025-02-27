@@ -49,7 +49,7 @@ public class CommonSteps {
     }
 
 
-    @When("read data from CSV and send {string}{string}{string}")
+    @When("read data from CSV and send {string} {string} {string}")
     public void readDataFromCsvFileAndSendThemToTheRequest(String row , String column1 , String column2) {
         excelReadFile = new ExcelReadFile("input.xlsx");
         cellData1=excelReadFile.getCellData("GenerateData",Integer.parseInt(row),Integer.parseInt(column1));

@@ -9,5 +9,5 @@ Feature: Retrieve users from reqresIn
 
 
     Examples:
-      | EndPoint |  | StatusCode |
-      | api/users/| | 200        |
+      | EndPoint  |  | StatusCode |
+      | api/users/|  | 200        |

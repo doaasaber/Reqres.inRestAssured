@@ -2,7 +2,7 @@ Feature: Create new user to reqres.in
 
   Scenario Outline: Create new user and verify the response
     Given the base URL is set
-    When read data from CSV and send "<row>""<column1>""<column2>"
+    When read data from CSV and send "<row>" "<column1>" "<column2>"
     And send a POST request to "<EndPoint>"
     Then validate response status code "<StatusCode>"
     And validate response data
