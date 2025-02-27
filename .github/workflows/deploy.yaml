@@ -47,8 +47,8 @@ jobs:
 
       - name: Move Allure Results (If Needed)
         run: |
-          if [ -d "target/allure-results" ]; then
-            mv target/allure-results allure-results
+          if [ -d "allure-results" ]; then
+            mv allure-results allure-results
           fi
 
       - name: Verify Allure Results Exist
