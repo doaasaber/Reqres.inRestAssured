@@ -16,12 +16,4 @@ public class CreateUserRequestSteps {
 
     }
 
-
-    @When("user send a POST request to  {string} with empty data")
-    public void userSendAPOSTRequestToWithEmptyData(String endpoint) {
-        CommonSteps.response = given().header("Content-Type", "application/json")
-                .body("")
-                .when()
-                .post(endpoint);
-    }
 }

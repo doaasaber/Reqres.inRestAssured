@@ -2,12 +2,11 @@ Feature: Retrieve users from reqresIn
 
   Scenario Outline: Retrieve all posts and verify the response
     Given the base URL is set
-    When user send a GET request to  "<EndPoint>"
+    When user sends a GET request to "<EndPoint>"
     Then validate response status code "<StatusCode>"
     And validate on response
     And log response time
 
-
     Examples:
-      | EndPoint  |  | StatusCode |
-      | api/users/|  | 200        |
+      | EndPoint   | StatusCode |
+      | api/users/ | 200        |
